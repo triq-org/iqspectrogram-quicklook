@@ -1,9 +1,8 @@
+#import <Foundation/Foundation.h>
 #include <CoreFoundation/CoreFoundation.h>
 #include <CoreServices/CoreServices.h>
 #include <QuickLook/QuickLook.h>
-
-OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thumbnail, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options, CGSize maxSize);
-void CancelThumbnailGeneration(void *thisInterface, QLThumbnailRequestRef thumbnail);
+#import "SpectrogramImage.h"
 
 /* -----------------------------------------------------------------------------
     Generate a thumbnail for file
@@ -13,7 +12,12 @@ void CancelThumbnailGeneration(void *thisInterface, QLThumbnailRequestRef thumbn
 
 OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thumbnail, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options, CGSize maxSize)
 {
-    // To complete your generator please implement the function GenerateThumbnailForURL in GenerateThumbnailForURL.c
+    CGImageRef image = CreateImageForURL(url, 130, 65);
+    if (image == NULL) {
+        return -1;
+    }
+    QLThumbnailRequestSetImage(thumbnail, image, nil);
+    CGImageRelease(image);
     return noErr;
 }
 

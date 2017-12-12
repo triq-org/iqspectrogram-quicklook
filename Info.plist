@@ -11,7 +11,17 @@
 			<string>QLGenerator</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>SUPPORTED_UTI_TYPE</string>
+				<string>org.zuckschwerdt.sdr-data</string>
+				<string>dyn.ah62d4rv4ge80g7m2</string><!-- ?0=6:1=cu8 -->
+				<string>dyn.ah62d4rv4ge80g632</string><!-- ?0=6:1=cs8 -->
+				<string>dyn.ah62d4rv4ge80g63vg2</string><!-- ?0=6:1=cs16 -->
+				<string>dyn.ah62d4rv4ge81gqm0</string><!-- ?0=6:1=s16 -->
+				<string>dyn.ah62d4rv4ge80g63xgk</string><!-- ?0=6:1=cs32 -->
+				<string>dyn.ah62d4rv4ge81gq3w</string><!-- ?0=6:1=s32 -->
+				<string>dyn.ah62d4rv4ge80g3vxgk</string><!-- ?0=6:1=cf32 -->
+				<string>dyn.ah62d4rv4ge80qq3w</string><!-- ?0=6:1=f32 -->
+				<string>dyn.ah62d4rv4ge80g3xmrvwu</string><!-- ?0=6:1=cfile -->
+				<string>dyn.ah62d4rv4ge80k2pyqe</string><!-- ?0=6:1=data -->
 			</array>
 		</dict>
 	</array>
@@ -45,8 +55,6 @@
 	</dict>
 	<key>CFPlugInUnloadFunction</key>
 	<string></string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2017 Christian Zuckschwerdt. All rights reserved.</string>
 	<key>QLNeedsToBeRunInMainThread</key>
 	<false/>
 	<key>QLPreviewHeight</key>
@@ -57,5 +65,34 @@
 	<false/>
 	<key>QLThumbnailMinimumSize</key>
 	<real>17</real>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>SDR data file</string>
+			<key>UTTypeIdentifier</key>
+			<string>org.zuckschwerdt.sdr-data</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>cu8</string>
+					<string>cs8</string>
+					<string>cs16</string>
+					<string>s16</string>
+					<string>cs32</string>
+					<string>s32</string>
+					<string>cf32</string>
+					<string>f32</string>
+					<string>cfile</string>
+					<string>data</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>

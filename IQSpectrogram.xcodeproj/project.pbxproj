@@ -7,17 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21FAABE41ED5792600AEECA1 /* GenerateThumbnailForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 21FAABE31ED5792600AEECA1 /* GenerateThumbnailForURL.c */; };
-		21FAABE61ED5792600AEECA1 /* GeneratePreviewForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 21FAABE51ED5792600AEECA1 /* GeneratePreviewForURL.c */; };
-		21FAABE81ED5792600AEECA1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 21FAABE71ED5792600AEECA1 /* main.c */; };
+		21F299601FDFF97D00AA955A /* spectrogram.c in Sources */ = {isa = PBXBuildFile; fileRef = 21F2995B1FDFF97D00AA955A /* spectrogram.c */; };
+		21F299611FDFF97D00AA955A /* draw.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F2995C1FDFF97D00AA955A /* draw.h */; };
+		21F299621FDFF97D00AA955A /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F2995D1FDFF97D00AA955A /* font.h */; };
+		21F299631FDFF97D00AA955A /* spectrogram.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F2995E1FDFF97D00AA955A /* spectrogram.h */; };
+		21F299641FDFF97D00AA955A /* cube1_cmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F2995F1FDFF97D00AA955A /* cube1_cmap.h */; };
+		21F299661FDFFA9000AA955A /* libfftw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F299651FDFFA9000AA955A /* libfftw3.a */; };
+		21FAABF71ED57B5A00AEECA1 /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FAABEF1ED57B1C00AEECA1 /* GeneratePreviewForURL.m */; };
+		21FAABF81ED57B5A00AEECA1 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FAABF01ED57B1C00AEECA1 /* GenerateThumbnailForURL.m */; };
+		21FAABF91ED57B5A00AEECA1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 21FAABF21ED57B1C00AEECA1 /* main.c */; };
+		21FAABFC1ED57B8700AEECA1 /* SpectrogramImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 21FAABFA1ED57B8700AEECA1 /* SpectrogramImage.h */; };
+		21FAABFD1ED57B8700AEECA1 /* SpectrogramImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FAABFB1ED57B8700AEECA1 /* SpectrogramImage.m */; };
+		21FAAC0B1ED580A000AEECA1 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FAAC061ED580A000AEECA1 /* ApplicationServices.framework */; };
+		21FAAC0C1ED580A000AEECA1 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FAAC071ED580A000AEECA1 /* CoreFoundation.framework */; };
+		21FAAC0D1ED580A000AEECA1 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FAAC081ED580A000AEECA1 /* CoreServices.framework */; };
+		21FAAC0E1ED580A000AEECA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FAAC091ED580A000AEECA1 /* Foundation.framework */; };
+		21FAAC0F1ED580A000AEECA1 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FAAC0A1ED580A000AEECA1 /* QuickLook.framework */; };
+		21FAAC131ED5868100AEECA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21FAAC121ED5868100AEECA1 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21F2995B1FDFF97D00AA955A /* spectrogram.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = spectrogram.c; sourceTree = SOURCE_ROOT; };
+		21F2995C1FDFF97D00AA955A /* draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw.h; sourceTree = SOURCE_ROOT; };
+		21F2995D1FDFF97D00AA955A /* font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = font.h; sourceTree = SOURCE_ROOT; };
+		21F2995E1FDFF97D00AA955A /* spectrogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spectrogram.h; sourceTree = SOURCE_ROOT; };
+		21F2995F1FDFF97D00AA955A /* cube1_cmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cube1_cmap.h; sourceTree = SOURCE_ROOT; };
+		21F299651FDFFA9000AA955A /* libfftw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfftw3.a; path = lib/libfftw3.a; sourceTree = "<group>"; };
 		21FAABE01ED5792600AEECA1 /* IQSpectrogram.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IQSpectrogram.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
-		21FAABE31ED5792600AEECA1 /* GenerateThumbnailForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GenerateThumbnailForURL.c; sourceTree = "<group>"; };
-		21FAABE51ED5792600AEECA1 /* GeneratePreviewForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GeneratePreviewForURL.c; sourceTree = "<group>"; };
-		21FAABE71ED5792600AEECA1 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		21FAABE91ED5792600AEECA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21FAABEF1ED57B1C00AEECA1 /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = SOURCE_ROOT; };
+		21FAABF01ED57B1C00AEECA1 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = SOURCE_ROOT; };
+		21FAABF11ED57B1C00AEECA1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		21FAABF21ED57B1C00AEECA1 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = SOURCE_ROOT; };
+		21FAABFA1ED57B8700AEECA1 /* SpectrogramImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectrogramImage.h; sourceTree = SOURCE_ROOT; };
+		21FAABFB1ED57B8700AEECA1 /* SpectrogramImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpectrogramImage.m; sourceTree = SOURCE_ROOT; };
+		21FAAC061ED580A000AEECA1 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		21FAAC071ED580A000AEECA1 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		21FAAC081ED580A000AEECA1 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		21FAAC091ED580A000AEECA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		21FAAC0A1ED580A000AEECA1 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		21FAAC121ED5868100AEECA1 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +53,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F299661FDFFA9000AA955A /* libfftw3.a in Frameworks */,
+				21FAAC0B1ED580A000AEECA1 /* ApplicationServices.framework in Frameworks */,
+				21FAAC0C1ED580A000AEECA1 /* CoreFoundation.framework in Frameworks */,
+				21FAAC0D1ED580A000AEECA1 /* CoreServices.framework in Frameworks */,
+				21FAAC0E1ED580A000AEECA1 /* Foundation.framework in Frameworks */,
+				21FAAC0F1ED580A000AEECA1 /* QuickLook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -34,8 +68,10 @@
 		21FAABD61ED5792600AEECA1 = {
 			isa = PBXGroup;
 			children = (
-				21FAABE21ED5792600AEECA1 /* IQSpectrogram */,
+				21FAABFE1ED57BA300AEECA1 /* Resources */,
+				21FAABE21ED5792600AEECA1 /* Source */,
 				21FAABE11ED5792600AEECA1 /* Products */,
+				21FAABFF1ED57CDC00AEECA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,15 +83,45 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21FAABE21ED5792600AEECA1 /* IQSpectrogram */ = {
+		21FAABE21ED5792600AEECA1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				21FAABE31ED5792600AEECA1 /* GenerateThumbnailForURL.c */,
-				21FAABE51ED5792600AEECA1 /* GeneratePreviewForURL.c */,
-				21FAABE71ED5792600AEECA1 /* main.c */,
-				21FAABE91ED5792600AEECA1 /* Info.plist */,
+				21F2995F1FDFF97D00AA955A /* cube1_cmap.h */,
+				21F2995C1FDFF97D00AA955A /* draw.h */,
+				21F2995D1FDFF97D00AA955A /* font.h */,
+				21F2995B1FDFF97D00AA955A /* spectrogram.c */,
+				21F2995E1FDFF97D00AA955A /* spectrogram.h */,
+				21FAABFA1ED57B8700AEECA1 /* SpectrogramImage.h */,
+				21FAABFB1ED57B8700AEECA1 /* SpectrogramImage.m */,
+				21FAABEF1ED57B1C00AEECA1 /* GeneratePreviewForURL.m */,
+				21FAABF01ED57B1C00AEECA1 /* GenerateThumbnailForURL.m */,
+				21FAABF21ED57B1C00AEECA1 /* main.c */,
 			);
+			name = Source;
 			path = IQSpectrogram;
+			sourceTree = "<group>";
+		};
+		21FAABFE1ED57BA300AEECA1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21FAAC121ED5868100AEECA1 /* InfoPlist.strings */,
+				21FAABF11ED57B1C00AEECA1 /* Info.plist */,
+			);
+			name = Resources;
+			path = IQSpectrogram;
+			sourceTree = "<group>";
+		};
+		21FAABFF1ED57CDC00AEECA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21FAAC061ED580A000AEECA1 /* ApplicationServices.framework */,
+				21FAAC071ED580A000AEECA1 /* CoreFoundation.framework */,
+				21FAAC081ED580A000AEECA1 /* CoreServices.framework */,
+				21FAAC091ED580A000AEECA1 /* Foundation.framework */,
+				21FAAC0A1ED580A000AEECA1 /* QuickLook.framework */,
+				21F299651FDFFA9000AA955A /* libfftw3.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +131,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F299611FDFF97D00AA955A /* draw.h in Headers */,
+				21FAABFC1ED57B8700AEECA1 /* SpectrogramImage.h in Headers */,
+				21F299631FDFF97D00AA955A /* spectrogram.h in Headers */,
+				21F299641FDFF97D00AA955A /* cube1_cmap.h in Headers */,
+				21F299621FDFF97D00AA955A /* font.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +166,7 @@
 		21FAABD71ED5792600AEECA1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Christian Zuckschwerdt";
 				TargetAttributes = {
 					21FAABDF1ED5792600AEECA1 = {
@@ -126,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21FAAC131ED5868100AEECA1 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,9 +208,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21FAABE41ED5792600AEECA1 /* GenerateThumbnailForURL.c in Sources */,
-				21FAABE61ED5792600AEECA1 /* GeneratePreviewForURL.c in Sources */,
-				21FAABE81ED5792600AEECA1 /* main.c in Sources */,
+				21FAABF71ED57B5A00AEECA1 /* GeneratePreviewForURL.m in Sources */,
+				21FAABF81ED57B5A00AEECA1 /* GenerateThumbnailForURL.m in Sources */,
+				21FAABF91ED57B5A00AEECA1 /* main.c in Sources */,
+				21FAABFD1ED57B8700AEECA1 /* SpectrogramImage.m in Sources */,
+				21F299601FDFF97D00AA955A /* spectrogram.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +229,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -163,7 +239,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -203,7 +283,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -211,7 +293,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -237,10 +323,17 @@
 		21FAABED1ED5792600AEECA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = IQSpectrogram/Info.plist;
+				HEADER_SEARCH_PATHS = ./include;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
-				PRODUCT_BUNDLE_IDENTIFIER = org.zuckschwerdt.IQSpectrogram;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = org.zuckschwerdt.qlgenerator.IQSpectrogram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = qlgenerator;
 			};
@@ -249,10 +342,17 @@
 		21FAABEE1ED5792600AEECA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = IQSpectrogram/Info.plist;
+				HEADER_SEARCH_PATHS = ./include;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
-				PRODUCT_BUNDLE_IDENTIFIER = org.zuckschwerdt.IQSpectrogram;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = org.zuckschwerdt.qlgenerator.IQSpectrogram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = qlgenerator;
 			};
@@ -277,6 +377,7 @@
 				21FAABEE1ED5792600AEECA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
