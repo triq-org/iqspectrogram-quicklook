@@ -12,7 +12,7 @@
 
 OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options)
 {
-    CGImageRef image = CreateImageForURL(url, 3000, 513);
+    CGImageRef image = CreateImageForURL(url, 3000, 512, YES);
     if (image == NULL) {
         return -1;
     }

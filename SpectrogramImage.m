@@ -15,48 +15,75 @@
 #include "draw.h"
 #include "spectrogram.h"
 
-UInt8 *convert(const char * path, NSUInteger width, NSUInteger height)
+UInt8 *CreateSpectrogram(const char * path, NSUInteger width, NSUInteger height, BOOL decorations)
 {
-    int spectro_width = 3000;
-    int spectro_height = 512;
+    int spectro_width = (int)width;
+    int spectro_height = (int)height;
     int border_top = font_y + 2; // title
     int border_bottom = font_y + 2 + 18; // time + amplitude
     int border_left = font_X * 9;
     int border_right = 40 + 100; // 20px (cmap), 100px (histogram)
 
+    if (spectro_width <= 256) {
+        border_top = 0;
+        border_bottom = 0;
+        border_left = 0;
+        border_right = 0;
+    }
+
     bitmap_t canvas;
     canvas.width = spectro_width + border_left + border_right;
     canvas.height = spectro_height + border_top + border_bottom;
     canvas.pixels = calloc(canvas.width * canvas.height, sizeof(pixel_t));
+    // or: void * CFAllocatorAllocate(NULL, CFIndex size, 0);
+    // and: CFDataCreateWithBytesNoCopy(NULL, data, size, NULL);
+    // rather:
+    // CFDataRef data = CFDataCreateWithBytesNoCopy(NULL, const UInt8 *bytes, CFIndex length, NULL); // auto-free
+    // CGDataProvider provider = CGDataProviderCreateWithCFData( (CFDataRef) data );
     if (!canvas.pixels)
     {
         return NULL;
     }
 
     draw_spectrogram(path, &canvas, spectro_width, spectro_height, border_top, border_left);
-    //free(canvas.pixels);
 
     return (UInt8 *)canvas.pixels;
 }
 
-CGImageRef CreateImageForURL(CFURLRef url, NSUInteger width, NSUInteger height)
+void cgDataProviderReleaseDataCallback(void *info, const void *data, size_t size)
+{
+    free((void *)data);
+}
+
+CGImageRef CreateImageForURL(CFURLRef url, NSUInteger width, NSUInteger height, BOOL decorations)
 {
 
     //NSData *fileData = [[NSData alloc] initWithContentsOfURL:(NSURL*)url];
     NSString *path = [(__bridge NSURL*)url path];
     const char *pathCString = [path fileSystemRepresentation];
 
-    UInt8 *pixelData = convert(pathCString, width, height);
+    UInt8 *pixelData = CreateSpectrogram(pathCString, width, height, decorations);
     if (!pixelData) {
          NSLog(@"(Spectrogram) cannot convert SDR data for %@", url);
         return NULL;
     }
+    // fudge
+    size_t dataWidth = width + 194;
+    size_t dataHeight = height + 46;
+    if (width <= 256) {
+        dataWidth = width;
+        dataHeight = height;
+    }
+    size_t bitsPerComponent = 8;
+    size_t bitsPerPixel = 8 * 3;
+    size_t bytesPerRow = dataWidth * 3;
 
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-    CFDataRef rgbData = CFDataCreate(NULL, pixelData, 3194 * 558 * 3);
-    CGDataProviderRef provider = CGDataProviderCreateWithCFData(rgbData);
-    CGImageRef rgbImageRef = CGImageCreate(3194, 558, 8, 24, 3194 * 3, colorspace, kCGBitmapByteOrderDefault, provider, NULL, true, kCGRenderingIntentDefault);
-    CFRelease(rgbData);
+
+    // CFDataCreate + CGDataProviderCreateWithCFData would copy. use a release callback instead:
+    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, pixelData, dataWidth * dataHeight * 3, cgDataProviderReleaseDataCallback);
+
+    CGImageRef rgbImageRef = CGImageCreate(dataWidth, dataHeight, bitsPerComponent, bitsPerPixel, bytesPerRow, colorspace, kCGBitmapByteOrderDefault, provider, NULL, true, kCGRenderingIntentDefault);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorspace);
 

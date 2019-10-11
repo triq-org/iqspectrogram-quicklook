@@ -12,16 +12,29 @@
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>org.zuckschwerdt.sdr-data</string>
+				<string>dyn.ah62d4rv4ge80g7my</string><!-- ?0=6:1=cu4 -->
+				<string>dyn.ah62d4rv4ge80g63y</string><!-- ?0=6:1=cs4 -->
 				<string>dyn.ah62d4rv4ge80g7m2</string><!-- ?0=6:1=cu8 -->
 				<string>dyn.ah62d4rv4ge80g632</string><!-- ?0=6:1=cs8 -->
+				<string>dyn.ah62d4rv4ge80g7mvgk</string><!-- ?0=6:1=cu12 -->
+				<string>dyn.ah62d4rv4ge80g63vgk</string><!-- ?0=6:1=cs12 -->
+				<string>dyn.ah62d4rv4ge80g7mvg2</string><!-- ?0=6:1=cu16 -->
 				<string>dyn.ah62d4rv4ge80g63vg2</string><!-- ?0=6:1=cs16 -->
 				<string>dyn.ah62d4rv4ge81gqm0</string><!-- ?0=6:1=s16 -->
+				<string>dyn.ah62d4rv4ge80g7mxgk</string><!-- ?0=6:1=cu32 -->
 				<string>dyn.ah62d4rv4ge80g63xgk</string><!-- ?0=6:1=cs32 -->
 				<string>dyn.ah62d4rv4ge81gq3w</string><!-- ?0=6:1=s32 -->
 				<string>dyn.ah62d4rv4ge80g3vxgk</string><!-- ?0=6:1=cf32 -->
 				<string>dyn.ah62d4rv4ge80qq3w</string><!-- ?0=6:1=f32 -->
-				<string>dyn.ah62d4rv4ge80g3xmrvwu</string><!-- ?0=6:1=cfile -->
+				<string>dyn.ah62d4rv4ge80g7m0gu</string><!-- ?0=6:1=cu64 -->
+				<string>dyn.ah62d4rv4ge80g630gu</string><!-- ?0=6:1=cs64 -->
+				<string>dyn.ah62d4rv4ge80g3v0gu</string><!-- ?0=6:1=cf64 -->
+				<string>dyn.ah62d4rv4ge80qrvy</string><!-- ?0=6:1=f64 -->
 				<string>dyn.ah62d4rv4ge80k2pyqe</string><!-- ?0=6:1=data -->
+				<string>dyn.ah62d4rv4ge80g3xmrvwu</string><!-- ?0=6:1=cfile -->
+				<string>dyn.ah62d4rv4ge80g55rsb0gn8bvg34u</string><!-- ?0=6:1=complex16u -->
+				<string>dyn.ah62d4rv4ge80g55rsb0gn8bvg33u</string><!-- ?0=6:1=complex16s -->
+				<string>dyn.ah62d4rv4ge80g55rsb0gn8a</string><!-- ?0=6:1=complex -->
 			</array>
 		</dict>
 	</array>
@@ -80,16 +93,29 @@
 			<dict>
 				<key>public.filename-extension</key>
 				<array>
+					<string>cu4</string>
+					<string>cs4</string>
 					<string>cu8</string>
 					<string>cs8</string>
+					<string>cu12</string>
+					<string>cs12</string>
+					<string>cu16</string>
 					<string>cs16</string>
 					<string>s16</string>
+					<string>cu32</string>
 					<string>cs32</string>
 					<string>s32</string>
 					<string>cf32</string>
 					<string>f32</string>
-					<string>cfile</string>
+					<string>cu64</string>
+					<string>cs64</string>
+					<string>cf64</string>
+					<string>f64</string>
 					<string>data</string>
+					<string>cfile</string>
+					<string>complex16u</string>
+					<string>complex16s</string>
+					<string>complex</string>
 				</array>
 			</dict>
 		</dict>

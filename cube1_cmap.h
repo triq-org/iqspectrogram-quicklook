@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 
-uint8_t cube1_cmap[] = {
+static uint8_t cube1_cmap[] = {
     0, 0, 0, // 116, 0, 129,
     118, 0, 133,
     119, 0, 136,

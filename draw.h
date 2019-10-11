@@ -49,23 +49,12 @@ inline void pixel_cmap(bitmap_t *bitmap, int x, int y, uint8_t *cmap, int c) {
 
 // lines
 
-inline void draw_hline(bitmap_t *bitmap, int x1, int y1, int x2, int c) {
-    for (int x = x1; x <= x2; ++x) {
-        pixel_set(bitmap, x, y1, c);
+inline void fill_rect(bitmap_t *bitmap, int left, int top, int width, int height, int c) {
+    for (int y = top; y < top + height; ++y) {
+        for (int x = left; x < left + width; ++x) {
+            pixel_set(bitmap, x, y, c);
+        }
     }
-}
-
-inline void draw_vline(bitmap_t *bitmap, int x1, int y1, int y2, int c) {
-    for (int y = y1; y <= y2; ++y) {
-        pixel_set(bitmap, x1, y, c);
-    }
-}
-
-inline void draw_line(bitmap_t *bitmap, int x1, int y1, int x2, int y2, int c) {
-    if (x1 == x2)
-        draw_vline(bitmap, x1, y1, y2, c);
-    else if (y1 == y2)
-        draw_hline(bitmap, x1, y1, x2, c);
 }
 
 #endif // DRAW_H

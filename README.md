@@ -12,3 +12,6 @@ Click [Releases](https://github.com/zuckschwerdt/iqspectrogram-quicklook/release
 ## Development Notes
 
 The plugin needs a precompiled `libfftw3.a`.
+
+Note that the UTI special dynamic type identifiers are `dyn.a<base32>` with the charset "abcdefghkmnpqrstuvwxyz0123456789".
+Use e.g. https://github.com/darienhuss/custombase `./custombase.py -32 -c abcdefghkmnpqrstuvwxyz0123456789 -e -in '?0=6:1=cu8'`
