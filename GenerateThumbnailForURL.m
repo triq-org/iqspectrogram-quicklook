@@ -18,7 +18,7 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
     }
     QLThumbnailRequestSetImage(thumbnail, image, nil);
     CGImageRelease(image);
-    return noErr;
+    return kQLReturnNoError;
 }
 
 void CancelThumbnailGeneration(void *thisInterface, QLThumbnailRequestRef thumbnail)

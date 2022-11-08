@@ -6,6 +6,7 @@
 ///
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CGImage.h>
 
 
 CGImageRef CreateImageForURL(CFURLRef url, NSUInteger width, NSUInteger height, BOOL decorations);

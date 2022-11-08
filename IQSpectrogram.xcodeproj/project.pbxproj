@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21F299601FDFF97D00AA955A /* spectrogram.c in Sources */ = {isa = PBXBuildFile; fileRef = 21F2995B1FDFF97D00AA955A /* spectrogram.c */; };
-		21F299611FDFF97D00AA955A /* draw.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F2995C1FDFF97D00AA955A /* draw.h */; };
-		21F299621FDFF97D00AA955A /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F2995D1FDFF97D00AA955A /* font.h */; };
-		21F299631FDFF97D00AA955A /* spectrogram.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F2995E1FDFF97D00AA955A /* spectrogram.h */; };
-		21F299641FDFF97D00AA955A /* cube1_cmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F2995F1FDFF97D00AA955A /* cube1_cmap.h */; };
-		21F299661FDFFA9000AA955A /* libfftw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F299651FDFFA9000AA955A /* libfftw3.a */; };
+		21838FA42919B11F00BDF888 /* libtriq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21838FA32919B11F00BDF888 /* libtriq.a */; };
 		21FAABF71ED57B5A00AEECA1 /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FAABEF1ED57B1C00AEECA1 /* GeneratePreviewForURL.m */; };
 		21FAABF81ED57B5A00AEECA1 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FAABF01ED57B1C00AEECA1 /* GenerateThumbnailForURL.m */; };
 		21FAABF91ED57B5A00AEECA1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 21FAABF21ED57B1C00AEECA1 /* main.c */; };
@@ -27,12 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		21F2995B1FDFF97D00AA955A /* spectrogram.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = spectrogram.c; sourceTree = SOURCE_ROOT; };
-		21F2995C1FDFF97D00AA955A /* draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw.h; sourceTree = SOURCE_ROOT; };
-		21F2995D1FDFF97D00AA955A /* font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = font.h; sourceTree = SOURCE_ROOT; };
-		21F2995E1FDFF97D00AA955A /* spectrogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spectrogram.h; sourceTree = SOURCE_ROOT; };
-		21F2995F1FDFF97D00AA955A /* cube1_cmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cube1_cmap.h; sourceTree = SOURCE_ROOT; };
-		21F299651FDFFA9000AA955A /* libfftw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfftw3.a; path = lib/libfftw3.a; sourceTree = "<group>"; };
+		21838FA32919B11F00BDF888 /* libtriq.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtriq.a; path = lib/libtriq.a; sourceTree = "<group>"; };
 		21FAABE01ED5792600AEECA1 /* IQSpectrogram.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IQSpectrogram.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		21FAABEF1ED57B1C00AEECA1 /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = SOURCE_ROOT; };
 		21FAABF01ED57B1C00AEECA1 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = SOURCE_ROOT; };
@@ -53,8 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F299661FDFFA9000AA955A /* libfftw3.a in Frameworks */,
 				21FAAC0B1ED580A000AEECA1 /* ApplicationServices.framework in Frameworks */,
+				21838FA42919B11F00BDF888 /* libtriq.a in Frameworks */,
 				21FAAC0C1ED580A000AEECA1 /* CoreFoundation.framework in Frameworks */,
 				21FAAC0D1ED580A000AEECA1 /* CoreServices.framework in Frameworks */,
 				21FAAC0E1ED580A000AEECA1 /* Foundation.framework in Frameworks */,
@@ -86,11 +76,6 @@
 		21FAABE21ED5792600AEECA1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				21F2995F1FDFF97D00AA955A /* cube1_cmap.h */,
-				21F2995C1FDFF97D00AA955A /* draw.h */,
-				21F2995D1FDFF97D00AA955A /* font.h */,
-				21F2995B1FDFF97D00AA955A /* spectrogram.c */,
-				21F2995E1FDFF97D00AA955A /* spectrogram.h */,
 				21FAABFA1ED57B8700AEECA1 /* SpectrogramImage.h */,
 				21FAABFB1ED57B8700AEECA1 /* SpectrogramImage.m */,
 				21FAABEF1ED57B1C00AEECA1 /* GeneratePreviewForURL.m */,
@@ -114,12 +99,12 @@
 		21FAABFF1ED57CDC00AEECA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21838FA32919B11F00BDF888 /* libtriq.a */,
 				21FAAC061ED580A000AEECA1 /* ApplicationServices.framework */,
 				21FAAC071ED580A000AEECA1 /* CoreFoundation.framework */,
 				21FAAC081ED580A000AEECA1 /* CoreServices.framework */,
 				21FAAC091ED580A000AEECA1 /* Foundation.framework */,
 				21FAAC0A1ED580A000AEECA1 /* QuickLook.framework */,
-				21F299651FDFFA9000AA955A /* libfftw3.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -131,11 +116,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F299611FDFF97D00AA955A /* draw.h in Headers */,
 				21FAABFC1ED57B8700AEECA1 /* SpectrogramImage.h in Headers */,
-				21F299631FDFF97D00AA955A /* spectrogram.h in Headers */,
-				21F299641FDFF97D00AA955A /* cube1_cmap.h in Headers */,
-				21F299621FDFF97D00AA955A /* font.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +161,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 21FAABD61ED5792600AEECA1;
@@ -212,7 +194,6 @@
 				21FAABF81ED57B5A00AEECA1 /* GenerateThumbnailForURL.m in Sources */,
 				21FAABF91ED57B5A00AEECA1 /* main.c in Sources */,
 				21FAABFD1ED57B8700AEECA1 /* SpectrogramImage.m in Sources */,
-				21F299601FDFF97D00AA955A /* spectrogram.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +204,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					x86_64,
+					arm64,
+				);
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -270,6 +255,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64 arm64";
 			};
 			name = Debug;
 		};
@@ -277,6 +263,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					x86_64,
+					arm64,
+				);
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -317,6 +307,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64 arm64";
 			};
 			name = Release;
 		};
@@ -333,7 +324,7 @@
 					"$(PROJECT_DIR)/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = org.zuckschwerdt.qlgenerator.IQSpectrogram;
+				PRODUCT_BUNDLE_IDENTIFIER = org.triq.qlgenerator.IQSpectrogram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = qlgenerator;
 			};
@@ -352,7 +343,7 @@
 					"$(PROJECT_DIR)/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = org.zuckschwerdt.qlgenerator.IQSpectrogram;
+				PRODUCT_BUNDLE_IDENTIFIER = org.triq.qlgenerator.IQSpectrogram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = qlgenerator;
 			};

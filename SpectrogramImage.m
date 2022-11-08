@@ -11,43 +11,43 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "font.h"
-#include "draw.h"
-#include "spectrogram.h"
+#include "triq.h"
 
 UInt8 *CreateSpectrogram(const char * path, NSUInteger width, NSUInteger height, BOOL decorations)
 {
-    int spectro_width = (int)width;
-    int spectro_height = (int)height;
-    int border_top = font_y + 2; // title
-    int border_bottom = font_y + 2 + 18; // time + amplitude
-    int border_left = font_X * 9;
-    int border_right = 40 + 100; // 20px (cmap), 100px (histogram)
-
-    if (spectro_width <= 256) {
-        border_top = 0;
-        border_bottom = 0;
-        border_left = 0;
-        border_right = 0;
+    splt_t *plot = splt_create(path);
+    if (!plot) {
+        return NULL;
     }
+    splt_set_dark_theme(plot, 1);
+    // splt_set_db_gain(plot, 6.0);
+    // splt_set_db_range(plot, 30.0);
+    // splt_set_cmap(plot, 0);
+    // splt_set_fft_size(plot, 512);
+    // splt_set_fft_window(plot, 5);
+    // splt_set_layout_histo_width(plot, 100);
+    // splt_set_layout_deci_height(plot, 16);
+    splt_set_fft_size(plot, 512);
+    splt_set_layout_size(plot, (uint32_t)width, (uint32_t)height);
+    splt_set_fft_size(plot, 512);
 
-    bitmap_t canvas;
-    canvas.width = spectro_width + border_left + border_right;
-    canvas.height = spectro_height + border_top + border_bottom;
-    canvas.pixels = calloc(canvas.width * canvas.height, sizeof(pixel_t));
+    uint32_t plot_width = splt_get_layout_width(plot);
+    uint32_t plot_height = splt_get_layout_height(plot);
+    uint32_t *pixels = malloc(plot_width * plot_height * sizeof(uint32_t));
     // or: void * CFAllocatorAllocate(NULL, CFIndex size, 0);
     // and: CFDataCreateWithBytesNoCopy(NULL, data, size, NULL);
     // rather:
     // CFDataRef data = CFDataCreateWithBytesNoCopy(NULL, const UInt8 *bytes, CFIndex length, NULL); // auto-free
     // CGDataProvider provider = CGDataProviderCreateWithCFData( (CFDataRef) data );
-    if (!canvas.pixels)
-    {
+    if (!pixels) {
         return NULL;
     }
+    // NSLog(@"(IQSpectrogram) rendering %u x %u (%u x %u)", plot_width, plot_height, (uint32_t)width, (uint32_t)height);
+    splt_draw(plot, pixels, plot_width, plot_height);
+    // NSLog(@"(IQSpectrogram) rendered %u x %u", plot_width, plot_height);
+    splt_destroy(plot);
 
-    draw_spectrogram(path, &canvas, spectro_width, spectro_height, border_top, border_left);
-
-    return (UInt8 *)canvas.pixels;
+    return (UInt8 *)pixels;
 }
 
 void cgDataProviderReleaseDataCallback(void *info, const void *data, size_t size)
@@ -57,33 +57,34 @@ void cgDataProviderReleaseDataCallback(void *info, const void *data, size_t size
 
 CGImageRef CreateImageForURL(CFURLRef url, NSUInteger width, NSUInteger height, BOOL decorations)
 {
-
-    //NSData *fileData = [[NSData alloc] initWithContentsOfURL:(NSURL*)url];
+    // NSData *fileData = [[NSData alloc] initWithContentsOfURL:(NSURL*)url];
     NSString *path = [(__bridge NSURL*)url path];
     const char *pathCString = [path fileSystemRepresentation];
 
-    UInt8 *pixelData = CreateSpectrogram(pathCString, width, height, decorations);
-    if (!pixelData) {
-         NSLog(@"(Spectrogram) cannot convert SDR data for %@", url);
-        return NULL;
-    }
     // fudge
-    size_t dataWidth = width + 194;
-    size_t dataHeight = height + 46;
+    size_t dataWidth = width;
+    size_t dataHeight = height + 42 + 132;
     if (width <= 256) {
         dataWidth = width;
         dataHeight = height;
     }
     size_t bitsPerComponent = 8;
-    size_t bitsPerPixel = 8 * 3;
-    size_t bytesPerRow = dataWidth * 3;
+    size_t bitsPerPixel = 8 * 4;
+    size_t bytesPerRow = dataWidth * 4;
 
-    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    UInt8 *pixelData = CreateSpectrogram(pathCString, dataWidth, dataHeight, decorations);
+    if (!pixelData) {
+         NSLog(@"(IQSpectrogram) cannot convert SDR data for %@", url);
+        return NULL;
+    }
 
+    // CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    CGColorSpaceRef colorspace = CGColorSpaceCreateWithName(kCGColorSpaceSRGB);
     // CFDataCreate + CGDataProviderCreateWithCFData would copy. use a release callback instead:
-    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, pixelData, dataWidth * dataHeight * 3, cgDataProviderReleaseDataCallback);
+    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, pixelData, dataWidth * dataHeight * 4, cgDataProviderReleaseDataCallback);
 
-    CGImageRef rgbImageRef = CGImageCreate(dataWidth, dataHeight, bitsPerComponent, bitsPerPixel, bytesPerRow, colorspace, kCGBitmapByteOrderDefault, provider, NULL, true, kCGRenderingIntentDefault);
+    CGImageRef rgbImageRef = CGImageCreate(dataWidth, dataHeight, bitsPerComponent, bitsPerPixel, bytesPerRow,
+            colorspace, kCGBitmapByteOrderDefault | kCGImageAlphaNoneSkipLast, provider, NULL, true, kCGRenderingIntentDefault);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorspace);
 

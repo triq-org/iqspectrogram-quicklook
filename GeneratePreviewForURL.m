@@ -12,12 +12,22 @@
 
 OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options)
 {
-    CGImageRef image = CreateImageForURL(url, 3000, 512, YES);
+    // Preset values
+    NSUInteger maxWidth = 1800;
+    NSUInteger maxHeight = 512;
+
+    CGImageRef image = CreateImageForURL(url, maxWidth, maxHeight, YES);
     if (image == NULL) {
         return -1;
     }
     CGFloat width = CGImageGetWidth(image);
     CGFloat height = CGImageGetHeight(image);
+    // NSLog(@"Got render size of %f x %f", width, height);
+
+    if (QLPreviewRequestIsCancelled(preview)) {
+        CGImageRelease(image);
+        return kQLReturnNoError;
+    }
 
     @autoreleasepool {
         NSDictionary *newOpt = [NSDictionary  dictionaryWithObjectsAndKeys:(NSString *)[(__bridge NSDictionary *)options objectForKey:(NSString *)kQLPreviewPropertyDisplayNameKey], kQLPreviewPropertyDisplayNameKey, [NSNumber numberWithFloat:width], kQLPreviewPropertyWidthKey, [NSNumber numberWithFloat:height], kQLPreviewPropertyHeightKey, nil];
@@ -27,7 +37,7 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
         CGImageRelease(image);
         CGContextRelease(ctx);
     }
-    return noErr;
+    return kQLReturnNoError;
 }
 
 void CancelPreviewGeneration(void *thisInterface, QLPreviewRequestRef preview)
