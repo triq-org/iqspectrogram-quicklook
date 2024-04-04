@@ -1,0 +1,57 @@
+name: Release
+on:
+  workflow_dispatch:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  release_job:
+    name: Create release
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+      release_version: ${{ env.RELEASE_VERSION }}
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Create Release info
+      # e.g. refs/tags/23.01
+      run: |
+        echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+        echo "RELEASE_NAME=Release ${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+    - uses: softprops/action-gh-release@v2
+      id: create_release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ env.RELEASE_VERSION }}
+        name: ${{ env.RELEASE_NAME }}
+        draft: true
+        prerelease: true
+
+  macos_build_job:
+    needs: release_job
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-12, macos-14]
+    runs-on: ${{ matrix.os }}
+    name: Build on ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          xcodebuild
+      - name: Check final binary
+        run: otool -L build/Release/IQSpectrogram.qlgenerator/Contents/MacOS/IQSpectrogram
+      - name: "Upload Release Asset"
+        if: matrix.os == 'macos-14'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ZIP_FILE: IQSpectrogram-quicklook-${{ matrix.os }}-${{ needs.release_job.outputs.release_version }}.zip
+        run: |
+          cd build/Release
+          zip -r $ZIP_FILE IQSpectrogram.qlgenerator
+          gh release upload ${{ needs.release_job.outputs.release_version }} $ZIP_FILE

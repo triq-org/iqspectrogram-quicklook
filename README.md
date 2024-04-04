@@ -3,6 +3,12 @@
 This is an open-source QuickLook plugin to generate spectrogram thumbnails and previews for SDR I/Q data.
 Requires Mac OS X 10.7 or later (but tested on 10.8).
 
+Small preview in Finder windows:
+![Finder screenshot](./images/Finder.png)
+
+Full QuickLook file preview:
+![QuickLook screenshot](./images/Quicklook.png)
+
 ## Supported file types
 
 - `.cu4`
